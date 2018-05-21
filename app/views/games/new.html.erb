@@ -15,7 +15,7 @@
           <div class="form-inline form">
           <%= hidden_field_tag "letters", @letters %>
           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-            <input class="form-control" type="text" name="answer">
+            <input class="form-control" id="text-field" type="text" name="answer" readonly="readonly">
             </input>
             <input type="submit" class="btn btn-primary">
             </input>
@@ -25,3 +25,15 @@
   </div>
 </div>
 
+<script>
+  const items = document.querySelectorAll("a");
+
+  items.forEach(link => {
+  link.addEventListener("click", function () {
+    event.preventDefault()
+    const field = document.getElementById("text-field");
+    field.value = field.value + link.innerText;
+  });
+});
+
+</script>
