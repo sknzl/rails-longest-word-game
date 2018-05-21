@@ -5,7 +5,11 @@
     <div class="score">
       <div class="col-xs-12">
         <p><%=@message%></p>
-        <%= link_to "New game", new_path %>
+        <p>Total score: <%=session[:score]%></p>
+        <ul class="list-unstyled">
+        <li><%= link_to "Reset score", reset_path %></li>
+        <li><%= link_to "New game", new_path %></li>
+        </ul>
       </div>
       </div>
     </div>

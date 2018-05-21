@@ -7,7 +7,13 @@ class GamesController < ApplicationController
     @letters = generate_grid(20)
   end
 
+  def reset
+    session[:score] = 0
+    redirect_to new_url
+  end
+
   def score
+    session[:score] = 0 if session[:score].nil?
     letters = params[:letters].split(" ")
     answer = params[:answer].split("")
     grid_hash = Hash.new(0)
@@ -32,13 +38,12 @@ class GamesController < ApplicationController
     end
 
     if result.include?(false)
-      @score = 0
-      @message = "#{answer.join} is not in the grid to match"
+      @message = "#{answer.join} is not in the grid to match."
     elsif check_word(answer.join) == true
-      @message = "well done"
+      session[:score] += answer.join.length
+      @message = "well done."
     else
-      @message = "#{answer.join} is not an english word"
-      @score = 0
+      @message = "#{answer.join} is not an english word."
     end
   end
 
