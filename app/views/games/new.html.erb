@@ -5,11 +5,10 @@
       <div class="col-xs-12">
         <ul class="list-inline">
           <% @letters.each do |letter| %>
-          <li class="list-inline-item"><a href="#" class="btn btn-primary"> <%= letter %> </a></li>
+          <li class="list-inline-item"><a href="#" class="btn btn-primary" id="letters"> <%= letter %> </a></li>
           <% end %>
         </ul>
       </div>
-    </div>
     <div class="col-xs-12">
         <form action="/score" method="POST">
           <div class="form-inline form">
@@ -22,18 +21,18 @@
           </div>
         </form>
       </div>
+    </div>
   </div>
 </div>
 
-<script>
-  const items = document.querySelectorAll("a");
-
+<!-- <script>
+  const items = document.querySelectorAll("a#letters");
   items.forEach(link => {
-  link.addEventListener("click", function () {
-    event.preventDefault()
-    const field = document.getElementById("text-field");
-    field.value = field.value + link.innerText;
+    link.addEventListener("click", function () {
+      event.preventDefault()
+      const field = document.getElementById("text-field");
+      field.value = field.value + link.innerText;
+    });
   });
-});
-
 </script>
+ -->

@@ -7,8 +7,8 @@
         <p><%=@message%></p>
         <p>Total score: <%=session[:score]%></p>
         <ul class="list-unstyled">
-        <li><%= link_to "Reset score", reset_path %></li>
-        <li><%= link_to "New game", new_path %></li>
+        <li><%= link_to "Reset score", reset_path, method: :get %></li>
+        <li><%= link_to "New game", new_url, method: :get %></li>
         </ul>
       </div>
       </div>
